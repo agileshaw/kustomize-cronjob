@@ -1,0 +1,15 @@
+- op: replace
+  path: /metadata
+  value:
+    name: "cronjob1"
+    namespace: "default"
+- op: replace
+  path: /spec/schedule
+  value: "*/9 * * * *"
+- op: replace
+  path: /spec/jobTemplate/spec/template/spec/containers/0
+  value:
+    name: cronjob1
+    image: "nginx:latest"
+    imagePullPolicy: IfNotPresent
+    command: ["echo", "Hello from cronjob 1 in infra."]

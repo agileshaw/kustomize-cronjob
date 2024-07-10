@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: ""
+  namespace: ""
+spec:
+  schedule: "" # empty, will need to be replaced by overlay patch
+  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: 6000
+      template:
+        spec:
+          restartPolicy: Never
+          enableServiceLinks: false
+          containers:
+            - name: cron
+              image: "" # empty, will need to be replaced by overlay patch
+              imagePullPolicy: IfNotPresent
+              command: [] # empty, will need to be replaced by overlay patch
